@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BL.ViewModel.CategroyViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+
+
+<table class="table my-4 table-bordered" >
+    <tr class="thead-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>Modification</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Product", "GetProductsINCategory", new { item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Delete", "Delete", new { item.Id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create",new { },new { @class= "btn btn-primary" })
+</p>

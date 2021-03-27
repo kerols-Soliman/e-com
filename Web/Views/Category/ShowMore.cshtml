@@ -1,0 +1,34 @@
+﻿@model List<BL.ViewModel.ProductViewModel>
+
+
+
+<div id="man's">
+    <div id="tshirt-product">
+            <div class="background-gray">
+                <h1 class="container">@ViewBag.Category.Name</h1>
+            </div>
+            <div class="container p-3">
+                <div class="row addTshirtProduct">
+                    @foreach (var product in Model)
+                    {
+
+
+                        <div data-id="1" data-type="T_shirt" class="card col-md-6 col-lg-3 py-1 border-0">
+                            <div class="border rounded">
+                                <img src="~/Content/image/@product.Image" class="card-img-top">
+                                <div class="card-body text-center text-md-left">
+                                    <h5 class="card-title">@product.Name</h5>
+                                    <p class="card-text">@product.Price</p>
+                                    <a href="/product/ShowDetails/@product.Id" class="btn btn-primary btn-orange">Quick Shop</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+    </div>
+
+
+</div>

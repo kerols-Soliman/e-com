@@ -1,0 +1,44 @@
+﻿@model List <BL.ViewModel.CategroyViewModel>
+
+
+
+<div id="man's">
+    <div id="tshirt-product">
+        @foreach (var item in Model)
+        {
+            <div class="background-gray">
+                <h1 class="container">@item.Name</h1>
+            </div>
+            <div class="container p-3">
+                <div class="row addTshirtProduct">
+                    @foreach (var product in item.Products.Take(4))
+                    {
+
+
+                        <div data-id="1" data-type="T_shirt" class="card col-md-6 col-lg-3 py-1 border-0">
+                            <div class="border rounded">
+                                <img src="~/Content/image/@product.Image" class="card-img-top">
+                                <div class="card-body text-center text-md-left">
+                                    <h5 class="card-title">@product.Name</h5>
+                                    <p class="card-text">@product.Price</p>
+                                    <a href="/product/ShowDetails/@product.Id" class="btn btn-primary btn-orange">Quick Shop</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+                @Html.ActionLink("Show More", "ShowMore","Category", new { id=item.Id },new { @class = "btn btn-primary btn-orange" })
+
+            </div>
+
+        }
+
+
+
+
+    </div>
+
+
+</div>

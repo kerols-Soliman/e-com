@@ -1,0 +1,54 @@
+﻿@model DAL.Cart
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+    
+
+</div>
+
+<table  class="table my-4 table-bordered">
+    <thead>
+        <tr>
+            <td>Image</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Modifcation</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductsCart)
+        {
+            <tr>
+                <td>
+                    <img src="~/Content/image/@item.Product.Image" style="width:100px;height:100px"  />
+                </td>
+                <td>
+                    @item.Product.Name
+                </td>
+                <td>
+                    @item.Product.Price
+                </td>
+                <td>
+                    @item.Quntity
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { ProductCart_Id = item.Id }, new { @class = "btn btn-edit" })
+                    @Html.ActionLink("Delete", "Delete", new { ProductCart_Id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+            }
+        </tbody>
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

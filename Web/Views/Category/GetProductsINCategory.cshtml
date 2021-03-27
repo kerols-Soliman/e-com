@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BL.ViewModel.ProductViewModel>
+
+@{
+    ViewBag.Title = "GetProductsINCategory";
+}
+
+<h2>@ViewBag.Category.Name</h2>
+
+<table class="table table-bordered">
+    <tr class="thead-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quentity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>Modification</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quentity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <img src="~/Content/image/@item.Image" style="width:100px;height:auto" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", "Product", new { id = item.Id }, new { @class = "btn btn-success " })
+                @Html.ActionLink("Delete", "Delete", "Product", new { id = item.Id, category_Id = @ViewBag.Category.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Category List", "Index",new { },new { @class="btn btn-primary"})
+</div>
+
+

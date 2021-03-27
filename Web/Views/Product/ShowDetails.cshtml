@@ -1,0 +1,43 @@
+﻿@model BL.ViewModel.ProductViewModel
+
+@{
+    ViewBag.Title = "ShowDetails";
+}
+
+<h2>ShowDetails</h2>
+
+<div class="  w-100 m-auto ">
+    <div class="container showProductDetails2 border rounded ">
+        <div class="row  p-2 ">
+            <div class="col-12 col-md-5 d-flex justify-content-center align-items-center">
+                <img src="~/Content/image/@Model.Image" class="img-fluid details-big-image" alt="" style="width: 60%;" />
+            </div>
+            <div class="col-12 col-md-7">
+                <h1 class="details-Name">@Model.Name</h1>
+                <div class="pt-md-2 ">
+                    <h4 style="display: inline;"> Price : </h4>
+                    <h5 class="details-Price" style="display: inline;">@Model.Price</h5>
+                </div>
+
+                <h5 class="pt-md-2">Description :</h5>
+                <div class=" ">
+                    <p class="details-descripe">@Model.Description</p>
+                </div>
+                <h5>Quantity</h5>
+                <div class="row ">
+                    <button class="btn  btn-orange col-1 rounded-left btn-Decrease" style="border-radius:0;">-</button>
+                    <div class="border-0 rounded-left p-0  col-1  d-flex justify-content-center">
+                        <input type="number" class="form-control text-center rounded-0 btn-orange border-0 Quantity px-1" id="formGroupExampleInput" value="1" maxProductAvailable="@Model.Quentity" name="Qty" disabled>
+                    </div>
+                    <button class="btn  btn-orange col-1 rounded-right btn-Increase" style="border-radius:0;">+</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row justify-content-center py-2">
+            @Html.ActionLink("Add To Cart", "Create", "Cart", new { productId=Model.Id, quentity=2 }, new { @class = "btn btn-primary btn-orange mr-1 btn-Add-To-Card" })
+        </div>
+    </div>
+</div>
+
+
