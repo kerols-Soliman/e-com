@@ -43,6 +43,16 @@ namespace BL.Bases
             if (entity == null) return; // not found; assume already deleted.
             Delete(entity);
         }
+        public void Delete(string entityId)
+        {
+            var entity = GetById(entityId);
+            if (entity == null) return; // not found; assume already deleted.
+            Delete(entity);
+        }
+        public virtual T GetById(string entityId)
+        {
+            return dbset.Find(entityId);
+        }
 
         public IQueryable<T> GetAll()
         {

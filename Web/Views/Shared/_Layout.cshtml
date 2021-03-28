@@ -43,21 +43,28 @@
                         <a class="nav-link" href="#">Kide's</a>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/Category/create">Create Category</a>
-                            <a class="dropdown-item" href="/Category/index">Category</a>
-                            <div class="dropdown-divider"></div>
+                    @if(User.Identity.IsAuthenticated && User.IsInRole("admin")){
 
-                            <a class="dropdown-item" href="/Product/create">Create Product</a>
-                            <a class="dropdown-item" href="/Product/Index">Product</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Category/create">Create Category</a>
+                                <a class="dropdown-item" href="/Category/index">Category</a>
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="/Product/create">Create Product</a>
+                                <a class="dropdown-item" href="/Product/Index">Product</a>
+                            </div>
+                        </li>
+
+                    }
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li class="nav-item mr-1 p-1 btn-cart">
+                            <a class="nav-link" href="/Favorite/My_FaviorateProduct"><i class="fas fa-heart"></i></a>
+                        </li>
                         <li class="nav-item mr-1 p-1 btn-cart">
                             <a class="nav-link" href="/Cart/Index"><i class="fas fa-shopping-cart"></i></a>
                         </li>
@@ -66,7 +73,7 @@
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item mr-1 p-1 nav-login">
-                            <a class="nav-link border rounded" href="/account/login" >Login</a>
+                            <a class="nav-link border rounded" href="/account/login">Login</a>
                         </li>
                         <li class="nav-item mr-1 p-1 nav-regist">
                             <a class="nav-link border rounded" href="account/Register">Regist</a>
@@ -75,7 +82,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li class="nav-item mr-1 p-1 nav-Sign-Out">
-                            <a class="nav-link border rounded btn-sign-out" href="index.html">Sign Out</a>
+                            <a class="nav-link border rounded btn-sign-out" href="/Account/Logout">Sign Out</a>
                         </li>
                     }
 
@@ -184,92 +191,25 @@
     <!-- search -->
     <div class="">
         <div class="container p-3">
-            <div class="row ">
-                <div class="col-12 col-md-8">
-                    <input type="text" class="form-control" placeholder="search about product">
+            <form action="/Product/Search" method="get">
+                <div class="row ">
+                    <div class="col-12 col-md-8">
+                        <input type="search"  name="ProductName" class="form-control" placeholder="search about product">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="submit" value="Search" class="btn btn-primary btn-orange w-100"/>
+                    </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <button type="button" class="btn btn-primary btn-orange w-100">Search</button>
-                </div>
-            </div>
+
+            </form>
         </div>
     </div>
+        
 
     <div class="container my-3">
         @RenderBody()
     </div>
-    <!--    <div id="man's">
-            <div id="tshirt-product">
-                <div class="background-gray">
-                    <h1 class="container">T-Shirts</h1>
-                </div>
-                <div class="container p-3">
-                    <div class="row addTshirtProduct">
 
-                    </div>
-                </div>
-            </div>
-
-            <div id="Jeans-product">
-                <div class="background-gray">
-                    <h1 class="container">Jeans</h1>
-                </div>
-                <div class="container p-3">
-                    <div class="row addJeansProduct">
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="future background-gray p-2">
-
-            <div class="container p-3">
-                <div class="row justify-content-around">
-                    <div class="col-12 col-sm-2 text-center">
-                        <i class="fas fa-truck future-icon p-3"></i>
-                        <p>Free Shipping</p>
-                    </div>
-                    <div class="col-12 col-sm-2 text-center">
-                        <i class="fas fa-rocket future-icon p-3"></i>
-                        <p>Fast Fulfillment</p>
-                    </div>
-                    <div class="col-12 col-sm-2 text-center">
-                        <i class="fas fa-star-half-alt future-icon p-3"></i>
-                        <p>Satisfaction Guarantee</p>
-                    </div>
-                    <div class="col-12 col-sm-2 text-center">
-                        <i class="fas fa-box future-icon p-3"></i>
-                        <p>Easy Returns</p>
-                    </div>
-                    <div class="col-12 col-sm-2 text-center">
-                        <i class="fas fa-lock future-icon p-3"></i>
-                        <p>
-                            Secure Checkout
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div>
-            <div id="dress_product" class="mt-2">
-                <div class="background-gray">
-                    <h1 class="container">Dresses</h1>
-                </div>
-                <div class="container p-3">
-                    <div class="row addDressProduct">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    -->
     <div class="background-gray p-2">
         <div class="container">
             <div class="row justify-content-around text-center">
@@ -316,15 +256,22 @@
             <div class="col-12 col-md-6">
                 <h3>Stay in avenue</h3>
                 <ul class="list-unstyled text-sm pt-1 row justify-content-center">
-                    <li class=" mr-1 p-2 nav-login col-8 col-md-3">
-                        <a class="nav-link border rounded text-center footer" href="#" data-toggle="modal" data-target="#exampleModal">Login</a>
-                    </li>
-                    <li class="mr-1 p-2 nav-regist col-8 col-md-3">
-                        <a class="nav-link border rounded text-center footer" href="#" data-toggle="modal" data-target="#exampleModalregist">Regist</a>
-                    </li>
-                    <li class="mr-1 p-2 nav-Sign-Out col-8 col-md-6">
-                        <a class="nav-link border rounded btn-sign-out text-center footer" href="index.html">Sign Out</a>
-                    </li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li class=" mr-1 p-2 nav-login col-8 col-md-3">
+                            <a class="nav-link border rounded text-center footer" href="/Account/Login">Login</a>
+                        </li>
+                        <li class="mr-1 p-2 nav-regist col-8 col-md-3">
+                            <a class="nav-link border rounded text-center footer" href="/Account/Register">Regist</a>
+                        </li>
+
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="mr-1 p-2 nav-Sign-Out col-8 col-md-6">
+                            <a class="nav-link border rounded btn-sign-out text-center footer" href="~/Account/Logout">Sign Out</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -333,7 +280,7 @@
 
 
 
-    
+
 
 
     @Scripts.Render("~/bundles/jquery")

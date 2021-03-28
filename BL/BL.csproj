@@ -63,6 +63,8 @@
     <Compile Include="AppServices\AccountAppService.cs" />
     <Compile Include="AppServices\CartAppService.cs" />
     <Compile Include="AppServices\CategroyAppService.cs" />
+    <Compile Include="AppServices\FavoriteProductAppService.cs" />
+    <Compile Include="AppServices\OrderAppServices.cs" />
     <Compile Include="AppServices\ProductAppService.cs" />
     <Compile Include="AppServices\ProductCartAppService.cs" />
     <Compile Include="AppServices\RoleAppService.cs" />

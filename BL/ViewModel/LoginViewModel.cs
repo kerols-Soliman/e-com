@@ -14,7 +14,7 @@ namespace BL.ViewModel
         [Required]
         public string UserName { get; set; }
 
-        [Required,DataType(DataType.Password)]
+        [Required,DataType(DataType.Password),Display(Name ="Password")]
         public string PasswordHash { get; set; }
     }
 }

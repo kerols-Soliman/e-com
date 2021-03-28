@@ -22,6 +22,7 @@
                                     <h5 class="card-title">@product.Name</h5>
                                     <p class="card-text">@product.Price</p>
                                     <a href="/product/ShowDetails/@product.Id" class="btn btn-primary btn-orange">Quick Shop</a>
+                                    <a href="/Favorite/AddProduct_TO_Faviorate/@product.Id" class="btn btn-orange mr-1 btn-Add-To-Card"><i class="fas fa-heart"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -29,8 +30,8 @@
                     }
 
                 </div>
-                @Html.ActionLink("Show More", "ShowMore","Category", new { id=item.Id },new { @class = "btn btn-primary btn-orange" })
-
+                @Html.ActionLink("Show More", "ShowMore", "Category", new { id = item.Id }, new { @class = "btn btn-primary btn-orange" })
+                
             </div>
 
         }

@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace Web.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         CartAppService cartAppService = new CartAppService();

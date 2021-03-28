@@ -16,11 +16,13 @@ namespace Web.Controllers
 
         ProductAppService productAppService = new ProductAppService();
         CategroyAppService categroyAppService = new CategroyAppService();
+        [AllowAnonymous]
         public ActionResult Index()
         {
 
             return View(productAppService.GetAllProduct());
         }
+        [Authorize(Roles ="admin")]
         public ActionResult Create() {
 
             ViewBag.Categroies = categroyAppService.GetAllCategroy();
@@ -47,7 +49,7 @@ namespace Web.Controllers
             return RedirectToAction("Index");
         }
 
-        //////
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             ProductViewModel product= productAppService.GetProductByID(id);
@@ -75,19 +77,25 @@ namespace Web.Controllers
            
         }
 
-        ////// Delete
-
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int id, int category_Id)
         {
 
             productAppService.DeleteProduct(id);
             return RedirectToAction("GetProductsINCategory","Category",new { id= category_Id });
         }
-
+        [AllowAnonymous]
         public ActionResult ShowDetails(int id)
         {
             ProductViewModel product= productAppService.GetProductByID(id);
             return View(product);
+        }
+        [AllowAnonymous]
+        public ActionResult Search(string ProductName)
+        {
+            var products = productAppService.GetAllProductsByName(ProductName);
+            ViewBag.Product_Name = ProductName;
+            return View("Index", products);
         }
     }
 }

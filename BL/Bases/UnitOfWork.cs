@@ -17,7 +17,7 @@ namespace BL.Bases
         public UnitOfWork()
         {
             EC_DbContext = new ApplicationDBContext();
-            EC_DbContext.Configuration.LazyLoadingEnabled = false;
+          //  EC_DbContext.Configuration.LazyLoadingEnabled = false;
         }
         public int Commit()
         {

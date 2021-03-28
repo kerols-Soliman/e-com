@@ -66,5 +66,9 @@ namespace BL.AppServices
             Product product = Mapper.Map<Product>(productViewModel);
             return TheUnitOfWork.Product.CheckProductExists(product);
         }
+        public List<ProductViewModel> GetAllProductsByName(string ProductName)
+        {
+            return Mapper.Map<List<ProductViewModel>>(TheUnitOfWork.Product.GetWhere(p => p.Name.Contains(ProductName)));
+        }
     }
 }

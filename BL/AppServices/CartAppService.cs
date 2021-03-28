@@ -14,6 +14,14 @@ namespace BL.AppServices
         {
             return(TheUnitOfWork.Cart.GetById(user_id));
         }
+        public void InsertCart(string user_ID)
+        {
+            Cart cart = new Cart{ User_Id = user_ID };
+            if (TheUnitOfWork.Cart.Insert(cart))
+            {
+                TheUnitOfWork.Commit();
+            }
+        }
         public bool SaveNewProductToCart(int Product_id, int Quentity, string user_ID)
         {
             var Checkcart = TheUnitOfWork.Cart.GetById(user_ID);
@@ -50,7 +58,18 @@ namespace BL.AppServices
             }
             
         }
-
+        public void Delete(string id)
+        {
+            TheUnitOfWork.Cart.Delete(id);
+        }
+        public void DeleteProductCartInCart(string id)
+        {
+            Cart cart = TheUnitOfWork.Cart.GetById(id);
+            foreach (var item in cart.ProductsCart)
+            {
+                TheUnitOfWork.ProductCart.Delete(item.Id);
+            }
+        }
         //public List<ProductCart> GetProductsINCart(string user_ID)
         //{
         //    var product_Cart = TheUnitOfWork.ProductCart.GetWhere(pc => pc.Cart_Id == user_ID).ToList();

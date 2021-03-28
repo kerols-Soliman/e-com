@@ -32,7 +32,7 @@ namespace BL.Reposateries
         {
             IdentityResult result = manager.AddToRole(userid, rolename);
             return result;
-
         }
+        
     }
 }

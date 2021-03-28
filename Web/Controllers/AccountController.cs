@@ -29,6 +29,7 @@ namespace Web.Controllers
             IdentityResult result = accountAppService.Register(user);
             if (result.Succeeded)
             {
+                CartAppService cartAppService = new CartAppService();
                 IAuthenticationManager owinMAnager = HttpContext.GetOwinContext().Authentication;
                 //SignIn
                 SignInManager<ApplicationUserIdentity, string> signinmanager =
@@ -37,7 +38,11 @@ namespace Web.Controllers
                         );
                 ApplicationUserIdentity identityUser = accountAppService.Find(user.UserName, user.PasswordHash);
                 signinmanager.SignIn(identityUser, true, true);
-                return RedirectToAction("Index", "Product");
+                /*
+                var userSignIn = User.Identity.GetUserId();
+                cartAppService.InsertCart(userSignIn);
+                */
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -66,7 +71,7 @@ namespace Web.Controllers
                         new ApplicationUserManager(), owinMAnager
                         );
                 signinmanager.SignIn(identityUser, true, true);
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -80,7 +85,7 @@ namespace Web.Controllers
         {
             IAuthenticationManager owinMAnager = HttpContext.GetOwinContext().Authentication;
             owinMAnager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Home");
         }
         public ActionResult Index()
         {

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DAL.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Order</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            product
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            <table  class="table">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Quentity</td>
+                        <td>Price</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item2 in item.productOrders)
+                    {
+                        <tr>
+                            <td>@item2.Product.Name</td>
+                            <td>@item2.Quntaty</td>
+                            <td>@item2.Product.Price</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+    </tr>
+}
+
+</table>

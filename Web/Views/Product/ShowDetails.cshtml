@@ -35,7 +35,8 @@
 
         </div>
         <div class="row justify-content-center py-2">
-            @Html.ActionLink("Add To Cart", "Create", "Cart", new { productId=Model.Id, quentity=2 }, new { @class = "btn btn-primary btn-orange mr-1 btn-Add-To-Card" })
+            <a class="btn btn-primary btn-orange mr-1 btn-Add-To-Card" href="/Cart/Create?productId=@Model.Id&quentity=1" id="cart-url">Add To Cart</a>
+            <a href="/Favorite/AddProduct_TO_Faviorate/@Model.Id" class="btn btn-orange mr-1 btn-Add-To-Card">Add to Faviorate</a>
         </div>
     </div>
 </div>

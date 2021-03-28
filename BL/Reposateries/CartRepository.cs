@@ -21,6 +21,12 @@ namespace BL.Reposateries
 
             return dbset.Where(x=>x.User_Id == entityId).Include(n=>n.ProductsCart.Select(x=>x.Product)).FirstOrDefault();
         }
+        public void Delete(string entityId)
+        {
+            var entity = GetById(entityId);
+            if (entity == null) return; // not found; assume already deleted.
+            Delete(entity);
+        }
         //public List<ProductCart> GetProductsInCart(string id)
         //{
         //    Cart cart = GetById(id);

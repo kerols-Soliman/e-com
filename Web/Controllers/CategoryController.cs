@@ -24,6 +24,7 @@ namespace Web.Controllers
             return View(products);
 
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Create() => View();
         [HttpPost]
         public ActionResult Create(CategroyViewModel newCategory)
@@ -40,7 +41,7 @@ namespace Web.Controllers
                ViewBag.CategoryIsExist = false;
             return RedirectToAction("Index");
         }
-        /// 
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             CategroyViewModel categroy = categroyAppService.GetCategroyById(id);
@@ -63,7 +64,7 @@ namespace Web.Controllers
         }
 
 
-        //////Delete
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
 

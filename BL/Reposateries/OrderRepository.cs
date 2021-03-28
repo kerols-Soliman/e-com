@@ -16,5 +16,17 @@ namespace BL.Reposateries
         {
             EC_DbContext = dbContext;
         }
+        public List<Order> GetAll()
+        {
+            return base.GetAll().Include(x => x.productOrders.Select(c => c.Product)).ToList();
+        }
+        public List<Order> GetById(string userId)
+        {
+            return dbset.Where(x => x.User_Id == userId).Include(x => x.productOrders.Select(n => n.Product)).ToList();
+        }
+        public List<Order> GetAllOrderRelatedToUser(string userId)
+        {
+            return GetById(userId);
+        }
     }
 }

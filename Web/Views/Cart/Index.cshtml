@@ -49,6 +49,7 @@
             }
         </tbody>
 </table>
+@Html.ActionLink("Order Now", "create", "Order", new { cartId = Model.User_Id }, new { @class="btn btn-primary"})
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
