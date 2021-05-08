@@ -19,6 +19,8 @@ namespace DAL
         public virtual Cart Cart { set; get; }
         public virtual List<FavoriteProduct> FavoriteProducts { get; set; }
         public virtual List<Order> Order { get; set; }
+        public virtual List<Comment> Comments { get; set; }
+
     }
     public class ApplicationUserStore : UserStore<ApplicationUserIdentity>
     {

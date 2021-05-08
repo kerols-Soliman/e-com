@@ -60,7 +60,16 @@ $(document).ready(function () {
         $("#cart-url").attr("href", newUrl);
         changedPart = "quentity=" + quent;
     })
-
+    var oldCommet = "comment=";
+    //$("#PostBtn").click(function () {
+    $("#comment").on("change paste keyup",function () {
+        
+        
+        comment = $("#comment").text();
+        oldCommet = comment
+        alert(oldCommet)
+        $("#PostBtn").attr("href").replace(oldCommet,"comment="+'"'+comment+'"' )
+    })
 
 
 })

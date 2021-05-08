@@ -37,6 +37,8 @@ namespace DAL
         public virtual List<ProductCart> ProductCarts { get; set; }
         public virtual List<FavoriteProduct> FavoriteProducts { get; set; }
 
-        public List<ProductOrder> productOrders { get; set; }
+        public virtual List<ProductOrder> productOrders { get; set; }
+
+        public virtual List<Comment> Comments { get; set; }
     }
 }

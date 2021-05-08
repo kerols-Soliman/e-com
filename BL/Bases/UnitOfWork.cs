@@ -124,6 +124,16 @@ namespace BL.Bases
                 return productOrder;
             }
         }
+        public CommentRepositry comment;
+        public CommentRepositry Comment
+        {
+            get
+            {
+                if (comment == null)
+                    comment = new CommentRepositry(EC_DbContext);
+                return comment;
+            }
+        }
 
     }
 }

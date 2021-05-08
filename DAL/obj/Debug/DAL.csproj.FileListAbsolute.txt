@@ -50,5 +50,23 @@ C:\Users\kero\Desktop\MVC\E-commerce2\E-commerce\DAL\obj\Debug\DAL.csproj.CoreCo
 C:\Users\kero\Desktop\MVC\E-commerce2\E-commerce\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\kero\Desktop\MVC\E-commerce2\E-commerce\DAL\obj\Debug\DAL.dll
 C:\Users\kero\Desktop\MVC\E-commerce2\E-commerce\DAL\obj\Debug\DAL.pdb
-C:\Users\kero\Desktop\MVC\E-commerce2\E-commerce\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 C:\Users\kero\Desktop\MVC\E-commerce2\E-commerce\DAL\obj\Debug\DAL.Migrations.init3.resources
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\DAL.dll.config
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\DAL.dll
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\DAL.pdb
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\EntityFramework.dll
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\EntityFramework.xml
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.Migrations.init.resources
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.Migrations.init3.resources
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.dll
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.pdb
+C:\Users\kero\Desktop\MVC\E-commerce2 - Copy\E-commerce\DAL\obj\Debug\DAL.Migrations.init5.resources

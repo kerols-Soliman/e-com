@@ -63,6 +63,7 @@
     <Compile Include="AppServices\AccountAppService.cs" />
     <Compile Include="AppServices\CartAppService.cs" />
     <Compile Include="AppServices\CategroyAppService.cs" />
+    <Compile Include="AppServices\CommentAppService.cs" />
     <Compile Include="AppServices\FavoriteProductAppService.cs" />
     <Compile Include="AppServices\OrderAppServices.cs" />
     <Compile Include="AppServices\ProductAppService.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Reposateries\AccountRepositry.cs" />
     <Compile Include="Reposateries\CartRepository.cs" />
     <Compile Include="Reposateries\CategoryRepository.cs" />
+    <Compile Include="Reposateries\CommentRepositry.cs" />
     <Compile Include="Reposateries\FavoriteProductRepositry.cs" />
     <Compile Include="Reposateries\OrderRepository.cs" />
     <Compile Include="Reposateries\ProductCartRepositry.cs" />

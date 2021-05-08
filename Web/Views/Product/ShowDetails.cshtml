@@ -39,6 +39,45 @@
             <a href="/Favorite/AddProduct_TO_Faviorate/@Model.Id" class="btn btn-orange mr-1 btn-Add-To-Card">Add to Faviorate</a>
         </div>
     </div>
+    <hr />
+    <div id="Comments">
+        @foreach (var item in Model.Comments)
+        {
+            <div class="row" id="comment-row">
+                <div class="col-1">@item.user.UserName</div>
+                <div class="col-11">@item.comment</div>
+            </div>
+        }
+    </div>
+
+    <form action="/Product/Comment" method="post">
+        <input type="text" name="comment" id="comment" />
+        <input type="hidden" name="product_Id" id="product_Id" value="@Model.Id" />
+        @*@Html.ActionLink("Post", "Comment",new { product_Id=Model.Id ,comment=""},new { @id= "PostBtn" })*@
+        <input type="submit" />
+    </form>
 </div>
 
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="~/signalr/js"></script>
+    <script>
+
+        var proxy = $.connection.CommentHub;
+        $.connection.hub.start().done(function () {
+            console.log("connection start")
+        })
+        proxy.client.NotifyNewComment = function (user, product_id, comment) {
+            if (@Model.Id== product_id) {
+                $("#Comments").append("<div class='row' id='comment-row'>"+
+                "<div class='col-1'>"+user+"</div>"+
+                "<div class='col-11'>"+comment+"</div> </div > "
+                )
+            }
+            
+        }
+    </script>
+}
 

@@ -70,26 +70,6 @@ namespace BL.AppServices
                 TheUnitOfWork.ProductCart.Delete(item.Id);
             }
         }
-        //public List<ProductCart> GetProductsINCart(string user_ID)
-        //{
-        //    var product_Cart = TheUnitOfWork.ProductCart.GetWhere(pc => pc.Cart_Id == user_ID).ToList();
-
-        //    List<Product> newList = new List<Product>();
-        //    foreach (var item in product_Cart)
-        //    {
-        //        newList.Add(TheUnitOfWork.Product.GetById(item.Product_Id));
-        //    }
-
-
-
-        //    return newList;
-        //    //var product = Mapper.Map<Product>(productViewModel);
-
-        //}
-        //public List<ProductCart> GetProductsINCart(string user_ID)
-        //{
-        //    var product_Cart = TheUnitOfWork.Cart.GetProductsInCart(user_ID);
-        //    return product_Cart;
-        //}
+        
     }
 }

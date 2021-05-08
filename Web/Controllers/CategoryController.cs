@@ -67,7 +67,6 @@ namespace Web.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
-
             categroyAppService.DeleteCategroy(id);
             return RedirectToAction("Index");
         }

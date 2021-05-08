@@ -1,15 +1,19 @@
 ﻿using BL.AppServices;
 using BL.ViewModel;
+using DAL;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.SignalR;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Web.Controllers
 {
-    [Authorize]
+    [System.Web.Mvc.Authorize]
     public class ProductController : Controller
     {
         // GET: Product
@@ -22,7 +26,7 @@ namespace Web.Controllers
 
             return View(productAppService.GetAllProduct());
         }
-        [Authorize(Roles ="admin")]
+        [System.Web.Mvc.Authorize(Roles ="admin")]
         public ActionResult Create() {
 
             ViewBag.Categroies = categroyAppService.GetAllCategroy();
@@ -36,6 +40,8 @@ namespace Web.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.Categroies = categroyAppService.GetAllCategroy();
+
+                
                 return View(newProduct);
 
             }
@@ -45,11 +51,13 @@ namespace Web.Controllers
                 newProduct.Image = fileName;
                 Image.SaveAs(Server.MapPath("~/Content/image/") + fileName);
             }
+            
+
             productAppService.SaveNewProduct(newProduct);
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "admin")]
+        [System.Web.Mvc.Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             ProductViewModel product= productAppService.GetProductByID(id);
@@ -77,7 +85,7 @@ namespace Web.Controllers
            
         }
 
-        [Authorize(Roles = "admin")]
+        [System.Web.Mvc.Authorize(Roles = "admin")]
         public ActionResult Delete(int id, int category_Id)
         {
 
@@ -97,5 +105,22 @@ namespace Web.Controllers
             ViewBag.Product_Name = ProductName;
             return View("Index", products);
         }
+
+        [HttpPost]
+        public ActionResult Comment(int product_Id,string comment)
+        {
+            string User_Id = User.Identity.GetUserId();
+            string UseName = User.Identity.Name;
+            CommentAppService commentAppService = new CommentAppService();
+            commentAppService.InsertComment(User_Id,product_Id, comment);
+
+            IHubContext commentHub= GlobalHost.ConnectionManager.GetHubContext("CommentHub");
+            commentHub.Clients.All.NotifyNewComment(UseName, product_Id, comment);
+
+
+            return RedirectToAction("ShowDetails",new { id=product_Id });
+        }
+
+
     }
 }

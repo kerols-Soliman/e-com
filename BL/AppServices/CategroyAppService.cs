@@ -72,7 +72,7 @@ namespace BL.AppServices
 
         public List<ProductViewModel> GetProductsInCategory(int Categ_id)
         {
-            return Mapper.Map<List<ProductViewModel>>(TheUnitOfWork.Product.GetWhere(p => p.Category_Id == Categ_id));
+            return Mapper.Map<List<ProductViewModel>>(TheUnitOfWork.Product.GetWhere(p => p.Category_Id == Categ_id).ToList());
         }
     }
 }

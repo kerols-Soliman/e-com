@@ -20,6 +20,6 @@ namespace BL.Interfaces
         FavoriteProductRepositry FavoriteProduct { get; }
         ProductCartRepositry ProductCart { get; }
         ProductOrderRepositry ProductOrder { get; }
-
+        CommentRepositry Comment { get; }
     }
 }

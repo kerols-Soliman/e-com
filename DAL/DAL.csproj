@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="FavoriteProduct.cs" />
     <Compile Include="IdentityModel.cs" />
     <Compile Include="Cart.cs" />
@@ -65,6 +66,10 @@
     <Compile Include="Migrations\202103281953239_init3.cs" />
     <Compile Include="Migrations\202103281953239_init3.Designer.cs">
       <DependentUpon>202103281953239_init3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104021844489_init5.cs" />
+    <Compile Include="Migrations\202104021844489_init5.Designer.cs">
+      <DependentUpon>202104021844489_init5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
@@ -83,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103281953239_init3.resx">
       <DependentUpon>202103281953239_init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104021844489_init5.resx">
+      <DependentUpon>202104021844489_init5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

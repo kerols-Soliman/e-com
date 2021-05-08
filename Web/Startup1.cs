@@ -19,6 +19,7 @@ namespace Web
                 ExpireTimeSpan = TimeSpan.FromDays(1),
                 LoginPath = new PathString("/Account/Login")
             });
+            app.MapSignalR();
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
         }
     }
